@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="file" name="" id="File" /><span></span>
+<script>
+    var file = document.getElementById("File");
+    file.onchange = function() {
+        var path = this.value;
+        var suffix = path.substr(path.lastIndexOf(".")).toUpperCase();
+//        alert(suffix);
+        if (suffix==".JPG" || suffix ==".PNG")
+        {
+            this.nextSibling.innerHTML = "格式正确";
+        }
+        else
+        {
+            this.nextSibling.innerHTML = "格式不正确";
+        }
+    }
+</script>
+</body>
+</html>

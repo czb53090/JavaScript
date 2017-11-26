@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function() {
+            function $(id) { return document.getElementById(id); }
+            var div1 = $("div1").innerHTML;
+            var div2 = $("div2").innerHTML;
+            function onBtnClick(id, txt) {
+                $(id).onclick = function() {
+                    this.nextSibling.innerHTML = txt;
+                }
+            }
+            onBtnClick("btn1", div1.concat(div2));
+            onBtnClick("btn2", div1.slice(3));
+            onBtnClick("btn3", div1.slice(3, 6));
+            onBtnClick("btn4", div1.slice(-1));
+            onBtnClick("btn5", div1.substr(3));
+            onBtnClick("btn6", div1.substr(3, 6));
+            onBtnClick("btn7", div1.substr(div1.length-1, 1));
+            for (var i=1; i<8; i++)
+                $("btn"+i).click();
+        }
+    </script>
+</head>
+<body>
+<div id="div1">my name is andy!</div>
+<div id="div2">what's your name?</div>
+<button id="btn1">concat()</button><span></span><br />
+
+<button id="btn2">slice(3)</button><span></span><br />
+<button id="btn3">slice(3, 6)</button><span></span><br />
+<button id="btn4">slice(-1)</button><span></span><br />
+
+<button id="btn5">substr(3)</button><span></span><br />
+<button id="btn6">substr(3, 6)</button><span></span><br />
+<!-- substr（-1）少用，IE678报错 -->
+<button id="btn7">substr(-1)兼容</button><span></span><br />
+<!-- span前面不能加空格 -->
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo">
+    <div id="box"></div>
+</div>
+<script>
+    var demo = document.getElementById("demo");
+    var childrens = demo.children;
+    // 创建节点
+    var firstDiv = document.createElement("div");
+    // 添加节点
+    demo.appendChild(firstDiv);
+
+    var test = document.createElement("div");
+    demo.insertBefore(test, childrens[0]);
+    // 如果第二个参数为null则默认把新生成的盒子放到最后面
+
+    // 删除节点
+    demo.removeChild(test);
+
+    // 克隆节点
+    demo.appendChild(childrens[0].cloneNode());
+    demo.parentNode.appendChild(demo.cloneNode(true));
+    // cloneNode可以指示参数，true深层复制，复制其子节点
+    // ，默认false，只复制其盒子
+</script>
+</body>
+</html>

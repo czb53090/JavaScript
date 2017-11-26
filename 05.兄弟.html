@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            var one = document.getElementById("one");
+            // 下一个兄弟：
+            //one.nextSibling.style.backgroundColor = "red";
+            // nextSibling只有IE6、7、8认识
+            // 其他浏览器认识：nextElementSibling
+            // 上一个兄弟：把next改为pre即可
+
+            // 合写：必须先写正常浏览器兼容的
+            var div = one.nextElementSibling
+                || one.nextSibling;
+            div.style.backgroundColor = "red";
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+    <li id="one">1235342</li>
+    <li>321</li>
+    <li>321</li>
+    <li>321</li>
+</ul>
+</body>
+</html>
