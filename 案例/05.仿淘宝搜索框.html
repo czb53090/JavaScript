@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .search {
+            width: 300px;
+            height: 30px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .search input {
+            width: 200px;
+            height: 25px;
+        }
+        .search label {
+            font-size: 12px;
+            color: #ccc;
+            position: absolute;
+            top: 6px;
+            left: 20px;
+            cursor: text;
+            /*文字不能被选中*/
+            -moz-user-select:none;/*火狐*/
+            -webkit-user-select:none;/*webkit浏览器*/
+            -ms-user-select:none;/*IE10*/
+            -khtml-user-select:none;/*早期浏览器*/
+            user-select:none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            function $(id) { return document.getElementById(id); }
+            //oninput：大部分浏览器支持的输入检测事件
+            //onpropertychange:IE8及以下的输入检测事件
+            $("txt").oninput = $("txt").onpropertychange = function(){
+                if (this.value == "")
+                    $("message").style.display = "block";
+                else
+                    $("message").style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="search">
+    <input type="text" id="txt" />
+    <label for="txt" id="message">必败的国际大牌</label>
+</div>
+</body>
+</html>

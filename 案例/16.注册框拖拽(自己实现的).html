@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .nav {
+            height: 25px;
+            background-color: #4a4;
+            padding-left: 20px;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .register {
+            width: 400px;
+            height: 300px;
+            border: 4px solid #eee;
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -200px;
+        }
+        .register .reg-top {
+            height: 25px;
+            background-color: #aaf;
+            color: #fff;
+            cursor: move;
+        }
+        .register .reg-top p {
+            float: left;
+        }
+        .register .reg-top a {
+            float: right;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="nav">
+    <ul>
+        <li><a href="javascript:;" id="show-reg">注册信息</a></li>
+    </ul>
+</div>
+<div class="register" id="register">
+    <div class="reg-top">
+        <p>注册信息（可以拖拽）</p>
+        <a href="javascript:;">【关闭】</a>
+    </div>
+    <div class="reg"></div>
+</div>
+</body>
+</html>
+<script>
+    var show_reg = document.getElementById("show-reg");
+    var register = document.getElementById("register");
+    var reg_top = register.children[0];
+    var close_reg = reg_top.children[1];
+
+    show_reg.onclick = function() {
+        register.style.display = "block";
+    }
+    close_reg.onclick = function() {
+        register.style.display = "none";
+    }
+
+    reg_top.onmousedown = function(event) {
+        var event = event || window.event;
+        var that = this.offsetParent;
+        var topVal = event.clientY - that.offsetTop - 150;
+        var leftVal = event.clientX - that.offsetLeft -200;
+        document.onmousemove = function(event) {
+            var event = event || window.event;
+            that.style.top = event.clientY - topVal + "px";
+            that.style.left = event.clientX - leftVal + "px";
+
+            // 阻止选择拖动
+            window.getSelection ? window.getSelection().removeAllRanges():
+                document.selection.empty();
+        }
+        document.onmouseup = function() {
+            document.onmousemove = null;
+        }
+    }
+</script>

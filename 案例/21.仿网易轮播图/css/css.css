@@ -1,0 +1,60 @@
+* { margin: 0; padding: 0; }
+img {
+    vertical-align: top;
+}
+.w-slider {
+    width: 310px;
+    height: 265px;
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+.w-slider .slider {
+    width: 310px;
+    height: 220px;
+    background-color: purple;
+}
+.w-slider .slider .slider-main {
+    width: 620px;
+    height: 220px;
+}
+.w-slider .slider .slider-main-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.w-slider .slider-ctrl {
+    text-align: center;
+    padding-top:5px;
+}
+.w-slider .slider-ctrl-con {
+    width: 24px;
+    height: 20px;
+    display: inline-block;
+    background: url(../images/icon.png) -24px -782px no-repeat;
+    margin: 0 5px;
+    cursor: pointer;
+    text-indent: -20em;
+    overflow: hidden;
+}
+.w-slider .slider-ctrl .current {
+    background: url(../images/icon.png) -24px -762px no-repeat;
+}
+.w-slider .slider-ctrl-prev,
+.w-slider .slider-ctrl-next {
+    width: 30px;
+    height: 35px;
+    position: absolute;
+    top: 50%;
+    margin-top: -35px;
+    background: url(../images/icon.png) 6px top no-repeat;
+    opacity: 0.8;
+    cursor: pointer;
+}
+.w-slider .slider-ctrl-prev {
+    left: 0;
+}
+.w-slider .slider-ctrl-next {
+    right: 0;
+    background-position: -6px -44px;
+}

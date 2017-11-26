@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function() {
+            var btns = document.getElementsByTagName("button");
+            var inputs = document.getElementById("bottom").getElementsByTagName("input");
+
+            var len_inputs = inputs.length;
+            function check(flag) {
+                for (var i = 0; i < len_inputs; i++) {
+                    inputs[i].checked = flag;
+                }
+            }
+            btns[0].onclick = function(){ check(true); }
+            btns[1].onclick = function(){ check(false); }
+            btns[2].onclick = function(){
+                for (var i = 0; i < len_inputs; i++) {
+                    inputs[i].checked = inputs[i].checked? false : true;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="top">
+    <button>全选</button>
+    <button>取消</button>
+    <button>反选</button>
+</div>
+<div id="bottom">
+    <ul>
+        <li>选项:：<input type="checkbox"></li>
+        <li>选项:：<input type="checkbox"></li>
+        <li>选项:：<input type="checkbox"></li>
+        <li>选项:：<input type="checkbox"></li>
+        <li>选项:：<input type="checkbox"></li>
+        <li>选项:：<input type="checkbox"></li>
+        <li>选项:：<input type="checkbox"></li>
+        <li>选项:：<input type="checkbox"></li>
+        <li>选项:：<input type="checkbox"></li>
+    </ul>
+</div>
+</body>
+</html>

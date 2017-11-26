@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: dodgerblue;
+            margin: 100px auto;
+            text-align: center;
+            border-radius: 10px;
+            font-family: "Microsoft YaHei";
+        }
+        .box p {
+            line-height: 30px;
+            font-size: 12px;
+            color: #fff;
+        }
+        .box span {
+            margin: 0 auto;
+            display: block;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            font-size: 40px;
+            background-color: #ff5;
+            color: #555;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var calendar = document.getElementById("calendar");
+            var boys = calendar.children;
+            var date = new Date();
+            var weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            boys[0].innerHTML = date.getFullYear() + "-" +
+                (date.getMonth()+1) +"-" + (date.getDate()+1)
+                + " " + weeks[date.getDay()];
+//            var week = "";
+//            switch (date.getDay())
+//            {
+//                case 0:
+//                    week = "一";
+//                    break;
+//                case 1:
+//                    week = "二";
+//                    break;
+//                case 2:
+//                    week = "三";
+//                    break;
+//                case 3:
+//                    week = "四";
+//                    break;
+//                case 4:
+//                    week = "五";
+//                    break;
+//                case 5:
+//                    week = "六";
+//                    break;
+//                case 6:
+//                    week = "日";
+//                    break;
+//            }
+//           boys[0].innerHTML += " 星期" + week;
+
+
+//            date.getHours() + ":" + date.getMinutes() +
+//            ":" + date.getSeconds()
+            boys[1].innerHTML = date.getDay();
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="calendar">
+    <p></p>
+    <span></span>
+</div>
+</body>
+</html>

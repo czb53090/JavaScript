@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name, age) {
+        var obj = {}; // 声明对象
+        obj.name = name;
+        obj.age = age;
+        obj.showName = function() {
+            alert("我的名字是 " + name);
+        }
+        obj.showAge = function() {
+            alert("我的年龄是 " + age + " 岁");
+        }
+        return obj; // 返回对象
+    }
+
+    var xiaoming = new Person("小明", 10);
+    var daming = new Person("大明", 12);
+
+    xiaoming.showName();
+    xiaoming.showAge();
+
+    daming.showName();
+    daming.showAge();
+
+    console.log(daming["name"]); // 可以，但提倡用"."来调用
+    console.log(daming.name);
+</script>
